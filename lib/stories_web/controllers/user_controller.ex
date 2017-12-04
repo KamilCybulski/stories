@@ -3,6 +3,7 @@ defmodule StoriesWeb.UserController do
 
   alias Stories.Accounts
   alias Stories.Accounts.User
+  alias Stories.Accounts.Auth
 
   def index(conn, _params) do
     users = Accounts.list_users()
@@ -18,6 +19,7 @@ defmodule StoriesWeb.UserController do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
+        |> Auth.login(user)
         |> put_flash(:info, "User created successfully.")
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
