@@ -1,6 +1,7 @@
 <h2>USER PAGE</h2>
 <%= if @current_user do %>
   Hello, <%= @current_user.name %>
+  <%= link "Logout", to: session_path(@conn, :delete, @current_user), method: "delete" %>
 <% else %>
   <span><%= link "New User", to: user_path(@conn, :new) %></span>
 <% end %>
