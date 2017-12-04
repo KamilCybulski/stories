@@ -13,6 +13,38 @@
   </head>
 
   <body>
+    <nav class="primary-navbar">
+      <div>
+        <%= link "Stories", to: page_path(@conn, :index), class: "navbar__logo" %>
+      </div>
+
+      <div>
+        <span>
+          <%= if @current_user do %>
+            <%= "Hello #{@current_user.name}"%>
+          <% else %>
+            <%= link "Log in", to: session_path(@conn, :new), class: "navbar__link"%>
+          <% end %>
+        </span>
+
+        <span>
+          <%= if @current_user do %>
+            <%= link "Index", to: user_path(@conn, :index), class: "navbar__link"%>
+          <% else %>
+            <%= link "Register", to: user_path(@conn, :new), class: "navbar__link" %>
+          <% end %>
+        </span>
+
+        <%= if @current_user do %>
+          <span>
+            <%=
+              link "Logout", to: session_path(@conn, :delete, @current_user), method: "delete", class: "navbar__link"
+            %>
+          </span>
+        <% end %>
+      </div>
+    </nav>
+
     <div class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
