@@ -20,7 +20,7 @@ defmodule Stories.Accounts.User do
     user
     |> cast(attrs, [:name, :description, :img])
     |> validate_required([:name, :description, :img])
-    |> validate_length(:description, min: 10, max: 150)
+    |> validate_length(:description, min: 10, max: 250)
   end
 
   def registration_changeset(user, attrs) do
