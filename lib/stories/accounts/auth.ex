@@ -8,6 +8,8 @@ defmodule Stories.Accounts.Auth do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
         put_change(changeset, :password_hash, hashpwsalt(password, []))
+      _ ->
+        changeset
     end
   end
 
