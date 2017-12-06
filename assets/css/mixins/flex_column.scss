@@ -1,0 +1,6 @@
+@mixin flex-column($w, $jc, $ai) {
+  display: flex;
+  flex-flow: column $w;
+  justify-content: $jc;
+  align-items: $ai;
+}

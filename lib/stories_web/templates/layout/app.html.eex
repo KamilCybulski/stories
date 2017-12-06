@@ -8,8 +8,23 @@
     <meta name="author" content="kamyl">
 
     <title>Stories!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+    >
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
   </head>
 
   <body>
@@ -45,7 +60,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 

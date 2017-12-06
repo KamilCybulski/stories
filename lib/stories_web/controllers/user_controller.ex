@@ -56,6 +56,7 @@ defmodule StoriesWeb.UserController do
     {:ok, _user} = Accounts.delete_user(user)
 
     conn
+    |> Auth.logout()
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: user_path(conn, :index))
   end
