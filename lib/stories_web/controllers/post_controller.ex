@@ -7,6 +7,9 @@ defmodule StoriesWeb.PostController do
   plug Stories.Plugs.RequireAuth when action in
     [:new, :edit, :create, :update, :delete]
 
+  plug Stories.Plugs.RequirePostOwner when action in
+    [:edit, :update, :delete]
+
   def index(conn, _params) do
     posts = Topics.list_posts()
     render(conn, "index.html", posts: posts)
