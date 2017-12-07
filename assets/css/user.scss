@@ -16,4 +16,16 @@
   margin-bottom: 40px;
 }
 
+.tabs {
+  .indicator {
+    background-color: #009688;
+  }
 
+  .tab a.active {
+    color: #009688 !important;
+  }
+}
+
+.secondary-nav {
+  height: 60px;
+}
