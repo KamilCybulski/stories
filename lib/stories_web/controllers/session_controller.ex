@@ -11,7 +11,7 @@ defmodule StoriesWeb.SessionController do
     case Auth.login_by_username_and_password(conn, name, password) do
       {:ok, conn} ->
         conn
-        |> redirect(to: user_path(conn, :index))
+        |> redirect(to: post_path(conn, :index))
       {:error, _, conn} ->
         conn
         |> put_flash(:error, "Wrong username or password")
@@ -22,6 +22,6 @@ defmodule StoriesWeb.SessionController do
   def delete(conn, _) do
     conn
     |> Auth.logout
-    |> redirect(to: user_path(conn, :index))
+    |> redirect(to: post_path(conn, :index))
   end
 end
