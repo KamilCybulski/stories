@@ -44,7 +44,7 @@
 
         <span>
           <%= if @current_user do %>
-            <%= link "Index", to: user_path(@conn, :index), class: "navbar__link"%>
+            <%= link "Index", to: user_path(@conn, :show, 7), class: "navbar__link"%>
           <% else %>
             <%= link "Register", to: user_path(@conn, :new), class: "navbar__link" %>
           <% end %>
