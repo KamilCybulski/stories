@@ -30,7 +30,7 @@
   <body>
     <nav class="primary-navbar">
       <div>
-        <%= link "Stories", to: page_path(@conn, :index), class: "navbar__logo" %>
+        <%= link "Stories", to: post_path(@conn, :index), class: "navbar__logo" %>
       </div>
 
       <div>

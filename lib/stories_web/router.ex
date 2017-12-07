@@ -17,8 +17,9 @@ defmodule StoriesWeb.Router do
   scope "/", StoriesWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
-    resources "/posts", PostController
+    get "/", PostController, :index
+    resources "/posts", PostController,
+      only: [:new, :create, :edit, :update, :delete, :show]
     resources "/users", UserController, only: [:new, :create, :show]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
