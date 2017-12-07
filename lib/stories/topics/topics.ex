@@ -13,8 +13,9 @@ defmodule Stories.Topics do
 
   def get_post!(id), do: Repo.get!(Post, id)
 
-  def create_post(attrs \\ %{}) do
-    %Post{}
+  def create_post(current_user, attrs \\ %{}) do
+    current_user
+    |> Ecto.build_assoc(:posts)
     |> Post.changeset(attrs)
     |> Repo.insert()
   end

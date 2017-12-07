@@ -15,7 +15,7 @@ defmodule StoriesWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
-    case Topics.create_post(post_params) do
+    case Topics.create_post(conn.assigns.current_user, post_params) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
