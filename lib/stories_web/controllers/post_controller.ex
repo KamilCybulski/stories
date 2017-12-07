@@ -4,6 +4,9 @@ defmodule StoriesWeb.PostController do
   alias Stories.Topics
   alias Stories.Topics.Post
 
+  plug Stories.Plugs.RequireAuth when action in
+    [:new, :edit, :create, :update, :delete]
+
   def index(conn, _params) do
     posts = Topics.list_posts()
     render(conn, "index.html", posts: posts)

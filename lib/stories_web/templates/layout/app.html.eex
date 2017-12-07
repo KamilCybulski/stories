@@ -44,7 +44,7 @@
 
         <span>
           <%= if @current_user do %>
-            <%= link "Index", to: user_path(@conn, :show, 7), class: "navbar__link"%>
+            <%= link "New Post", to: post_path(@conn, :new), class: "navbar__link"%>
           <% else %>
             <%= link "Register", to: user_path(@conn, :new), class: "navbar__link" %>
           <% end %>
@@ -56,13 +56,17 @@
               link "Logout", to: session_path(@conn, :delete, @current_user), method: "delete", class: "navbar__link"
             %>
           </span>
+          <% else %>
+            <%=
+              link "New post", to: post_path(@conn, :new), class: "navbar__link"
+            %>
         <% end %>
       </div>
     </nav>
 
     <div>
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <p class="teal white-text" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="red darken-4 white-text" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
